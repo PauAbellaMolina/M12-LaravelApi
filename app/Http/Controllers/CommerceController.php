@@ -10,9 +10,18 @@ class CommerceController extends Controller
     public function index() {
         try {
             $commerces = Commerce::all();
-            return response()->json(['status' => 1, 'commerces' => $commerces]);
+            return response()->json(['status' => 1, 'res' => $commerces]);
         } catch(\Exception $e) {
-            return response()->json(['status' => 0, 'commerces' => []], 500);
+            return response()->json(['status' => 0, 'res' => []], 500);
+        }
+    }
+
+    public function getCommerceById(Request $request) {
+        try {
+            $commerce = Commerce::findOrFail($request->id);
+            return response()->json(['status' => 1, 'res' => $commerce]);
+        } catch(\Exception $e) {
+            return response()->json(['status' => 0, 'res' => []], 500);
         }
     }
 }
