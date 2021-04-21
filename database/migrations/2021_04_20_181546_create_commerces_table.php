@@ -21,6 +21,7 @@ class CreateCommercesTable extends Migration
             $table->string('phone')->nullable()->default(null);
             $table->string('email')->nullable()->default(null);
             $table->text('schedule')->nullable()->default(null);
+            $table->string('address');
             $table->string('latitude');
             $table->string('longitude');
             $table->integer('total_points');
