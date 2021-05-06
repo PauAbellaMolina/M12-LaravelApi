@@ -19,7 +19,8 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
 });
 
 Route::get('JVyCcKg6sCkkFaaBbapK8uEcbuxz8LMAmpESzKhV/commerces', 'CommerceController@index');
-Route::get('JVyCcKg6sCkkFaaBbapK8uEcbuxz8LMAmpESzKhV/commerces/{id}', 'CommerceController@getCommerceById');
+Route::get('JVyCcKg6sCkkFaaBbapK8uEcbuxz8LMAmpESzKhV/commerces/{id}', 'CommerceController@getCommerceById'); //Maybe not needed
+Route::get('JVyCcKg6sCkkFaaBbapK8uEcbuxz8LMAmpESzKhV/commerces/category/{commerce_category}', 'CommerceController@getCommerceByCategory');
 
 Route::get('JVyCcKg6sCkkFaaBbapK8uEcbuxz8LMAmpESzKhV/categories', 'CategoriesController@index');
 Route::get('JVyCcKg6sCkkFaaBbapK8uEcbuxz8LMAmpESzKhV/categories/{id}', 'CategoriesController@getCategorieById');
@@ -32,3 +33,8 @@ Route::get('JVyCcKg6sCkkFaaBbapK8uEcbuxz8LMAmpESzKhV/users/{id}', 'UsersControll
 
 Route::get('JVyCcKg6sCkkFaaBbapK8uEcbuxz8LMAmpESzKhV/points', 'PointsController@index');
 Route::get('JVyCcKg6sCkkFaaBbapK8uEcbuxz8LMAmpESzKhV/points/{id_user}/{id_commerce}', 'PointsController@getPointsById');
+Route::post('JVyCcKg6sCkkFaaBbapK8uEcbuxz8LMAmpESzKhV/points/{id_user}/{id_commerce}/{points}', 'PointsController@addPointsById');
+
+Route::get('JVyCcKg6sCkkFaaBbapK8uEcbuxz8LMAmpESzKhV/transactions', 'TransactionsHistoryController@index');
+Route::get('JVyCcKg6sCkkFaaBbapK8uEcbuxz8LMAmpESzKhV/transactions/{id_commerce}', 'TransactionsHistoryController@getTrasnactionsByCommerce');
+Route::get('JVyCcKg6sCkkFaaBbapK8uEcbuxz8LMAmpESzKhV/transactions/{id_user}', 'TransactionsHistoryController@getTrasnactionsByUser');

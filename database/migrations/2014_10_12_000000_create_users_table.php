@@ -19,6 +19,7 @@ class CreateUsersTable extends Migration
             $table->string('surname');
             $table->string('email')->unique();
             $table->string('phone')->nullable()->default(null);
+            $table->text('picture')->nullable()->default(null);
             $table->timestamps();
         });
     }
