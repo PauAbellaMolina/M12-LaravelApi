@@ -15,18 +15,18 @@ class TransactionsHistoryController extends Controller
         }
     }
 
-    public function getPointsByCommerce(Request $request) {
+    public function getTrasnactionsByCommerce(Request $request) {
         try {
-            $transactions = \DB::table('transactions_history')->where('id_user', $request->id_commerce)->get();
+            $transactions = \DB::table('transactions_history')->where('id_user', $request->id_commerce)->orderBy('created_at', 'desc')->get();
             return response()->json(['status' => 1, 'res' => $transactions]);
         } catch(\Exception $e) {
             return response()->json(['status' => 0, 'res' => []], 500);
         }
     }
 
-    public function getPointsByUser(Request $request) {
+    public function getTrasnactionsByUser(Request $request) {
         try {
-            $transactions = \DB::table('transactions_history')->where('id_commerce', $request->id_user)->get();
+            $transactions = \DB::table('transactions_history')->where('id_commerce', $request->id_user)->orderBy('created_at', 'desc')->get();
             return response()->json(['status' => 1, 'res' => $transactions]);
         } catch(\Exception $e) {
             return response()->json(['status' => 0, 'res' => []], 500);

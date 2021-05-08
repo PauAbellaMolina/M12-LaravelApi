@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Transaction;
 use Illuminate\Http\Request;
 
 class PointsController extends Controller
@@ -28,6 +29,13 @@ class PointsController extends Controller
         try {
             $actualPoints = \DB::table('points')->where('id_user', $request->id_user)->where('id_commerce', $request->id_commerce)->first()->points;
             \DB::table('points')->where('id_user', $request->id_user)->where('id_commerce', $request->id_commerce)->update(['points' => $actualPoints+$request->points]);
+
+            $newTransaction = new Transaction;
+            $newTransaction->id_user = $request->id_user;
+            $newTransaction->id_commerce = $request->id_commerce;
+            $newTransaction->points = $request->points;
+            $newTransaction->save();
+
             $points = \DB::table('points')->where('id_user', $request->id_user)->where('id_commerce', $request->id_commerce)->first();
             return response()->json(['status' => 1, 'res' => $points]);
         } catch(\Exception $e) {

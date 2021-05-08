@@ -36,5 +36,5 @@ Route::get('JVyCcKg6sCkkFaaBbapK8uEcbuxz8LMAmpESzKhV/points/{id_user}/{id_commer
 Route::post('JVyCcKg6sCkkFaaBbapK8uEcbuxz8LMAmpESzKhV/points/{id_user}/{id_commerce}/{points}', 'PointsController@addPointsById');
 
 Route::get('JVyCcKg6sCkkFaaBbapK8uEcbuxz8LMAmpESzKhV/transactions', 'TransactionsHistoryController@index');
-Route::get('JVyCcKg6sCkkFaaBbapK8uEcbuxz8LMAmpESzKhV/transactions/{id_commerce}', 'TransactionsHistoryController@getTrasnactionsByCommerce');
-Route::get('JVyCcKg6sCkkFaaBbapK8uEcbuxz8LMAmpESzKhV/transactions/{id_user}', 'TransactionsHistoryController@getTrasnactionsByUser');
+Route::get('JVyCcKg6sCkkFaaBbapK8uEcbuxz8LMAmpESzKhV/transactions/commerce/{id_commerce}', 'TransactionsHistoryController@getTrasnactionsByCommerce');
+Route::get('JVyCcKg6sCkkFaaBbapK8uEcbuxz8LMAmpESzKhV/transactions/user/{id_user}', 'TransactionsHistoryController@getTrasnactionsByUser');
