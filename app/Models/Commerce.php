@@ -13,6 +13,7 @@ class Commerce extends Model
         'name',
         'description',
         'commerce_category',
+        'picture',
         'phone',
         'email',
         'schedule',

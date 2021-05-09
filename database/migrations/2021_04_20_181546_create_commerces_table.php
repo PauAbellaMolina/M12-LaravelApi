@@ -18,6 +18,7 @@ class CreateCommercesTable extends Migration
             $table->string('name');
             $table->text('description');
             $table->integer('commerce_category')->unsigned();
+            $table->text('picture')->nullable()->default(null);
             $table->string('phone')->nullable()->default(null);
             $table->string('email')->nullable()->default(null);
             $table->text('schedule')->nullable()->default(null);
