@@ -39,5 +39,7 @@ Route::get('JVyCcKg6sCkkFaaBbapK8uEcbuxz8LMAmpESzKhV/transactions', 'Transaction
 Route::get('JVyCcKg6sCkkFaaBbapK8uEcbuxz8LMAmpESzKhV/transactions/commerce/{id_commerce}', 'TransactionsHistoryController@getTrasnactionsByCommerce');
 Route::get('JVyCcKg6sCkkFaaBbapK8uEcbuxz8LMAmpESzKhV/transactions/user/{id_user}', 'TransactionsHistoryController@getTrasnactionsByUser');
 
+Route::get('JVyCcKg6sCkkFaaBbapK8uEcbuxz8LMAmpESzKhV/recompenses/{id_commerce}', 'RecompensesController@getRecompensesByCommerceOnly');
 Route::get('JVyCcKg6sCkkFaaBbapK8uEcbuxz8LMAmpESzKhV/recompenses/{id_commerce}/{id_user}', 'RecompensesController@getRecompensesByCommerce');
-Route::get('JVyCcKg6sCkkFaaBbapK8uEcbuxz8LMAmpESzKhV/recompenses/used/{id_user}/{id_recompense}', 'RecompensesController@useRecompense');
+Route::post('JVyCcKg6sCkkFaaBbapK8uEcbuxz8LMAmpESzKhV/recompenses/used/{id_commerce}/{id_user}/{id_recompense}', 'RecompensesController@useRecompense');
+Route::post('JVyCcKg6sCkkFaaBbapK8uEcbuxz8LMAmpESzKhV/recompenses/swapActive/{id_recompense}', 'RecompensesController@swapActiveRecompense');

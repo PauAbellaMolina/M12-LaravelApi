@@ -14,6 +14,7 @@ class Recompense extends Model
         'title',
         'description',
         'points',
-        'picture'
+        'picture',
+        'active'
     ];
 }

@@ -20,6 +20,7 @@ class CreateRecompensesTable extends Migration
             $table->text('description');
             $table->integer('points')->unsigned();
             $table->longText('picture')->nullable()->default(null);
+            $table->integer('active')->unsigned()->default(1);
             $table->timestamps();
         });
     }
