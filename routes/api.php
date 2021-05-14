@@ -30,6 +30,7 @@ Route::get('JVyCcKg6sCkkFaaBbapK8uEcbuxz8LMAmpESzKhV/levels/{points}', 'LevelsCo
 
 Route::get('JVyCcKg6sCkkFaaBbapK8uEcbuxz8LMAmpESzKhV/users', 'UsersController@index');
 Route::get('JVyCcKg6sCkkFaaBbapK8uEcbuxz8LMAmpESzKhV/users/{id}', 'UsersController@getUserById');
+Route::post('JVyCcKg6sCkkFaaBbapK8uEcbuxz8LMAmpESzKhV/fcmToken/{id_user}/{token}', 'UsersController@storeUserFcmToken');
 
 Route::get('JVyCcKg6sCkkFaaBbapK8uEcbuxz8LMAmpESzKhV/points', 'PointsController@index');
 Route::get('JVyCcKg6sCkkFaaBbapK8uEcbuxz8LMAmpESzKhV/points/{id_user}/{id_commerce}', 'PointsController@getPointsById');
