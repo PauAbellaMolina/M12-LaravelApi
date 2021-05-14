@@ -31,8 +31,14 @@ class PointsController extends Controller
 
     public function addPointsById(Request $request) {
         try {
-            $actualPoints = \DB::table('points')->where('id_user', $request->id_user)->where('id_commerce', $request->id_commerce)->first()->points;
-            \DB::table('points')->where('id_user', $request->id_user)->where('id_commerce', $request->id_commerce)->update(['points' => $actualPoints+$request->points]);
+            $actualPoints = \DB::table('points')->where('id_user', $request->id_user)->where('id_commerce', $request->id_commerce)->first();
+
+            if(!$actualPoints) {
+                \DB::table('points')->insert(['id_user' => $request->id_user, 'id_commerce' => $request->id_commerce, 'points' => 0]);
+                $actualPoints = \DB::table('points')->where('id_user', $request->id_user)->where('id_commerce', $request->id_commerce)->first();
+            }
+
+            \DB::table('points')->where('id_user', $request->id_user)->where('id_commerce', $request->id_commerce)->update(['points' => $actualPoints->points+$request->points]);
 
             $user = User::find($request->id_user)->first();
             $actualUserPoints = $user->points;
@@ -47,6 +53,7 @@ class PointsController extends Controller
             $points = \DB::table('points')->where('id_user', $request->id_user)->where('id_commerce', $request->id_commerce)->first();
             return response()->json(['status' => 1, 'res' => $points]);
         } catch(\Exception $e) {
+            dd($e);die();
             return response()->json(['status' => 0, 'res' => []], 500);
         }
     }
