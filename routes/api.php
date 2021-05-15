@@ -32,6 +32,10 @@ Route::get('JVyCcKg6sCkkFaaBbapK8uEcbuxz8LMAmpESzKhV/users', 'UsersController@in
 Route::get('JVyCcKg6sCkkFaaBbapK8uEcbuxz8LMAmpESzKhV/users/{id}', 'UsersController@getUserById');
 Route::post('JVyCcKg6sCkkFaaBbapK8uEcbuxz8LMAmpESzKhV/fcmToken/{id_user}/{token}', 'UsersController@storeUserFcmToken');
 
+Route::get('JVyCcKg6sCkkFaaBbapK8uEcbuxz8LMAmpESzKhV/isFavourite/{id_commerce}/{id_user}', 'FavCommerceUserController@isCommerceUsersFavourite');
+Route::post('JVyCcKg6sCkkFaaBbapK8uEcbuxz8LMAmpESzKhV/addFavourite/{id_commerce}/{id_user}', 'FavCommerceUserController@addCommerceUsersFavourite');
+Route::post('JVyCcKg6sCkkFaaBbapK8uEcbuxz8LMAmpESzKhV/removeFavourite/{id_commerce}/{id_user}', 'FavCommerceUserController@removeCommerceUsersFavourite');
+
 Route::get('JVyCcKg6sCkkFaaBbapK8uEcbuxz8LMAmpESzKhV/points', 'PointsController@index');
 Route::get('JVyCcKg6sCkkFaaBbapK8uEcbuxz8LMAmpESzKhV/points/{id_user}/{id_commerce}', 'PointsController@getPointsById');
 Route::post('JVyCcKg6sCkkFaaBbapK8uEcbuxz8LMAmpESzKhV/points/{id_user}/{id_commerce}/{points}', 'PointsController@addPointsById');
