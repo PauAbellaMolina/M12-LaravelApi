@@ -5,13 +5,13 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class Level extends Model
+class Notification extends Model
 {
     use HasFactory;
 
     protected $fillable = [
-        'name',
-        'from_points',
-        'to_points'
+        'id_commerce',
+        'title',
+        'body',
     ];
 }

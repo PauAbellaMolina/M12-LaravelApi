@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreatePointsTable extends Migration
+class CreateFavouriteCommerceUserTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,11 +13,10 @@ class CreatePointsTable extends Migration
      */
     public function up()
     {
-        Schema::create('points', function (Blueprint $table) {
-            $table->increments('id');
-            $table->integer('id_user')->unsigned();
+        Schema::create('favourite_commerce_user', function (Blueprint $table) {
+            $table->id();
             $table->integer('id_commerce')->unsigned();
-            $table->integer('points')->unsigned();
+            $table->integer('id_user')->unsigned();
             $table->timestamps();
         });
     }
@@ -29,6 +28,6 @@ class CreatePointsTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('points');
+        Schema::dropIfExists('favourite_commerce_user');
     }
 }
