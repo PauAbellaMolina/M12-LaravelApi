@@ -21,11 +21,13 @@ class NotificationsController extends Controller
 
     public function storeNotification(Request $request) {
         try {
+            $bodyContent = json_decode($request->getContent());
+
             //Store notification
             $notification = new Notification;
             $notification->id_commerce = $request->id_commerce;
-            $notification->title = $request->title;
-            $notification->body = $request->body;
+            $notification->title = $bodyContent->title;
+            $notification->body = $bodyContent->body;
             $notification->save();
 
             //Send notification to users
@@ -79,7 +81,7 @@ class NotificationsController extends Controller
 
             return response()->json(['status' => 1, 'res' => $notification]);
         } catch(\Exception $e) {
-            return response()->json(['status' => 0, 'res' => []], 500);
+            return response()->json(['status' => 0, 'res' => []], $e);
         }
     }
 }
