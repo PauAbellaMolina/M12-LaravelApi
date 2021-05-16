@@ -50,4 +50,4 @@ Route::post('JVyCcKg6sCkkFaaBbapK8uEcbuxz8LMAmpESzKhV/recompenses/used/{id_comme
 Route::post('JVyCcKg6sCkkFaaBbapK8uEcbuxz8LMAmpESzKhV/recompenses/swapActive/{id_recompense}', 'RecompensesController@swapActiveRecompense');
 
 Route::get('JVyCcKg6sCkkFaaBbapK8uEcbuxz8LMAmpESzKhV/notifications/{id_commerce}', 'NotificationsController@getNotifsByCommerce');
-Route::post('JVyCcKg6sCkkFaaBbapK8uEcbuxz8LMAmpESzKhV/notifications/{id_commerce}/{title}/{body}', 'NotificationsController@storeNotification');
+Route::post('JVyCcKg6sCkkFaaBbapK8uEcbuxz8LMAmpESzKhV/notifications/{id_commerce}', 'NotificationsController@storeNotification');
