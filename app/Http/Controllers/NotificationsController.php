@@ -11,7 +11,7 @@ class NotificationsController extends Controller
     public function getNotifsByCommerce(Request $request) {
         try {
             //PROBABLY NEED TO ORDER BY DATE FROM LATEST TO OLDEST
-            $notifications = Notification::where('id_commerce', $request->id_commerce)->get();
+            $notifications = Notification::where('id_commerce', $request->id_commerce)->orderBy('created_at', 'DESC')->get();
 
             return response()->json(['status' => 1, 'res' => $notifications]);
         } catch(\Exception $e) {
