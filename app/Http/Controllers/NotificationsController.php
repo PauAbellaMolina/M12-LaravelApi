@@ -56,7 +56,7 @@ class NotificationsController extends Controller
                 ];
                 $encodedData = json_encode($data);
 
-                $ch = curl_init();
+                $ch = \curl_init();
 
                 curl_setopt($ch, CURLOPT_URL, $url);
                 curl_setopt($ch, CURLOPT_POST, true);
@@ -81,7 +81,7 @@ class NotificationsController extends Controller
 
             return response()->json(['status' => 1, 'res' => $notification]);
         } catch(\Exception $e) {
-            return response()->json(['status' => 0, 'res' => []], $e);
+            return response()->json(['status' => 0, 'res' => []], 500);
         }
     }
 }
