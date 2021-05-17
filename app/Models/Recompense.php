@@ -5,20 +5,16 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class Commerce extends Model
+class Recompense extends Model
 {
     use HasFactory;
 
     protected $fillable = [
-        'name',
+        'id_commerce',
+        'title',
         'description',
-        'commerce_category',
+        'points',
         'picture',
-        'phone',
-        'email',
-        'schedule',
-        'latitude',
-        'longitude',
-        'total_points'
+        'active'
     ];
 }
