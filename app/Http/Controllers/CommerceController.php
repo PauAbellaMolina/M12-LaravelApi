@@ -24,4 +24,13 @@ class CommerceController extends Controller
             return response()->json(['status' => 0, 'res' => []], 500);
         }
     }
+
+    public function getCommerceByCategory(Request $request) {
+        try {
+            $commerce = Commerce::where('commerce_category', $request->commerce_category)->get();
+            return response()->json(['status' => 1, 'res' => $commerce]);
+        } catch(\Exception $e) {
+            return response()->json(['status' => 0, 'res' => []], 500);
+        }
+    }
 }

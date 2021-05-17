@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreatePointsTable extends Migration
+class CreateRecompensesUsedTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,11 +13,10 @@ class CreatePointsTable extends Migration
      */
     public function up()
     {
-        Schema::create('points', function (Blueprint $table) {
-            $table->increments('id');
+        Schema::create('recompenses_used', function (Blueprint $table) {
+            $table->id();
             $table->integer('id_user')->unsigned();
-            $table->integer('id_commerce')->unsigned();
-            $table->integer('points')->unsigned();
+            $table->integer('id_recompense')->unsigned();
             $table->timestamps();
         });
     }
@@ -29,6 +28,6 @@ class CreatePointsTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('points');
+        Schema::dropIfExists('recompenses_used');
     }
 }
