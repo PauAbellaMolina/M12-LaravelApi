@@ -81,7 +81,7 @@ class NotificationsController extends Controller
 
             return response()->json(['status' => 1, 'res' => $notification]);
         } catch(\Exception $e) {
-            return response()->json(['status' => 0, 'res' => []], $e);
+            return response()->json(['status' => 0, 'res' => []], 500);
         }
     }
 }
